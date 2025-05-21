@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #9ca3af;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.7;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation: bouncing 1s infinite 0.2s;
+}
+.typing-indicator span:nth-child(2) {
+  animation: bouncing 1s infinite 0.4s;
+}
+.typing-indicator span:nth-child(3) {
+  animation: bouncing 1s infinite 0.6s;
+}
+
+@keyframes bouncing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Seat selection grid */
+.seat {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seat:hover:not(.seat-taken) {
+  transform: scale(1.1);
+}
+
+.seat-available {
+  background-color: #9ca3af;
+}
+
+.seat-selected {
+  background-color: #3b82f6;
+}
+
+.seat-taken {
+  background-color: #ef4444;
+  cursor: not-allowed;
+}
+
+.screen {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  width: 80%;
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Ticket styling */
+.movie-ticket {
+  background-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticket-stub {
+  position: relative;
+}
+
+.ticket-stub:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 16px;
+  height: 100%;
+  background-image: radial-gradient(circle at 0 50%, transparent 8px, white 8px, white 10px, transparent 10px);
+  background-size: 16px 16px;
+  background-repeat: repeat-y;
+}
+
+/* Message animations */
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
